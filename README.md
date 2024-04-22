@@ -7,6 +7,9 @@ My other repo had some issues so I quickly made this one to fix the issues with 
 
 Requirements:
 Flask
+
 Flask-SQLAlchemy
+
 python-sqlite3
+
 python-json
