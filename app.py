@@ -134,24 +134,24 @@ def search_user_update():
             filtered_data.append(row)
 
 
-    print("Filtered data:", filtered_data)  
+    print("Filtered data:", filtered_data)
+
 
 
 
     return render_template('search_update_results.html', data=filtered_data, id=id, searchType=1)
 
 
-@app.route('/submit_user_update', methods=['POST'])
-def submit_user_update():
+@app.route('/submit_user_update/<int:user_id>', methods=['POST'])
+def submit_user_update(user_id):
     name = request.form['name']
-    id = request.form['id']
     points = request.form['points']
     
     
     conn = sqlite3.connect('users.db') 
     c = conn.cursor()
-    c.execute("DELETE FROM users WHERE id = ?", (id,)) #delete the old record
-    c.execute("INSERT INTO users (name, id, points) VALUES (?, ?, ?)", (name, id, points))
+    c.execute("DELETE FROM users WHERE id = ?", (user_id,))
+    c.execute("INSERT INTO users (name, id, points) VALUES (?, ?, ?)", (name, user_id, points))
     conn.commit()
     conn.close()
     

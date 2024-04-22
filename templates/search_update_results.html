@@ -15,14 +15,10 @@
         </ul>
     </div>
     <h3>Fill in the info you wish to update</h3>
-    <form action="/submit_user_update" method="post">
+    <form action="/submit_user_update/{{ id }}" method="post">
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1"></span>
             <input type="text" class="form-control" name="name" placeholder="name" aria-label="name" aria-describedby="basic-addon1">
-        </div>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"></span>
-            <input type="text" class="form-control" name="id" placeholder="id" aria-label="id" aria-describedby="basic-addon1">
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1"></span>
