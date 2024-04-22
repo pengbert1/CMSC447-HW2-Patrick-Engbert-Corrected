@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CMSC447-HW2-Home Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+</head>
+<body>
+    <h1>Data from SQLite Database</h1>
+    <h1>user table</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>ID</th>
+                <th>Points</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+            <tr>
+                <td>{{ row[0] }}</td>  
+                <td>{{ row[1] }}</td>  
+                <td>{{ row[2] }}</td> 
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="container mt-3">
+        <form action="/create" method="post">  <button type="submit" class="btn btn-primary">Insert to Table (create)</button>
+        </form>
+    </div>
+    <div class="container mt-3">
+        <form action="/search" method="post">  <button type="submit" class="btn btn-primary">Search Table</button>
+        </form>
+    </div>
+    <div class="container mt-3">
+        <form action="/delete" method="post">  <button type="submit" class="btn btn-primary">Delete user from table</button>
+        </form>
+    </div>
+
+    <div class="container mt-3">
+        <form action="/update" method="post">  <button type="submit" class="btn btn-primary">Update a user's info</button>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+</body>
+</html>
